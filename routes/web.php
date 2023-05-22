@@ -4,6 +4,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Metadata\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,9 @@ Route::get('/contato', [ContatoController::class, 'contato']);
 
 Route::get('/login', function(){return  "Login";});
 
-Route::get('/clientes', function(){return "Clientes";});
+Route::prefix('/app')->group(function () {
+    Route::get('/clientes', function(){return "Clientes";});
+    Route::get('/fornecedores', function(){return "Fornecedores";});
+    Route::get('/produtos', function(){return  "Produtos";});
+});
 
-Route::get('/fornecedores', function(){return "Fornecedores";});
-
-Route::get('/produtos', function(){return  "Produtos";});

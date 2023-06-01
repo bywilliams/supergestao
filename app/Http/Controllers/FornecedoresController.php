@@ -30,9 +30,7 @@ class FornecedoresController extends Controller
                 'ddd' => '32', // Juiz de fora MG
                 'telefone' => '1233-1214'
             ],
-        ];
-
-        
+        ];        
 
         return view('app.fornecedores.index', compact('fornecedores'));
     }

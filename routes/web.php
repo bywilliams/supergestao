@@ -20,7 +20,7 @@ use PHPUnit\Metadata\Group;
 */
 
 
-Route::get('/', [PrincipalController::class, 'principal'])->name('site.principal');
+Route::get('/', [PrincipalController::class, 'principal'])->name('site.index');
 
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 

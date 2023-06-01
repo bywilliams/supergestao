@@ -11,45 +11,34 @@
 @isset($fornecedores)
 
     {{-- loop foreach --}}
-    @foreach($fornecedores as $index => $fornecedor)
-        Fornecedor: {{ $fornecedor['nome'] }}
+    @forelse($fornecedores as $index => $fornecedor)
+        Iteração atual: {{ $loop->iteration }}
         <br>
-        Status: {{ $fornecedor['status'] }}
-        <br>
-        CNPJ: {{ $fornecedor['cnpj'] ?? 'valor não preenchido'}}
-        <br>
+        {{-- @dd($loop); --}}
+
+        Fornecedor: {{ $fornecedor['nome'] }} <br>
+
+        Status: {{ $fornecedor['status'] }} <br>
+
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'valor não preenchido'}} <br>
+
         Telefone: ({{ $fornecedor['ddd'] ?? ''}}) {{ $fornecedor['telefone'] ?? '' }}
+
+        <br>
+        @if($loop->first)
+            Primeira iteração
+        @elseif($loop->last)
+            Última iteração
+            <br>
+            Quantidade de indices: {{ $loop->count }}
+        @endif
+        
         <hr>
-    @endforeach
+    @empty
+        Não existem registros cadastrados!
+    @endforelse
 
-    {{-- loop while --}}
-    {{-- @php $i = 0; @endphp
-    @while(isset($fornecedores[$i]))
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
-        <br>
-        Status: {{ $fornecedores[$i]['status'] }}
-        <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'valor não preenchido'}}
-        <br>
-        Telefone: ({{ $fornecedores[$i]['ddd'] ?? ''}}) {{ $fornecedores[$i]['telefone'] ?? '' }}
-        <hr>
-        @php $i++ @endphp
-    @endwhile --}}
-
-    {{-- loop for --}}
-    {{-- @for($i = 0; isset($fornecedores[$i]); $i++)
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
-        <br>
-        Status: {{ $fornecedores[$i]['status'] }}
-        <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'valor não preenchido'}}
-        <br>
-        Telefone: ({{ $fornecedores[$i]['ddd'] ?? ''}}) {{ $fornecedores[$i]['telefone'] ?? '' }}
-        <hr>
-    @endfor --}}
-
-
-
+    
 @endisset
 
 

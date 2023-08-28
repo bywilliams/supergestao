@@ -24,7 +24,7 @@ input, select, textarea, button {
     margin: 10px 0px 10px 0px;
     box-sizing: border-box;
     border-radius: 3px;
-    background-color: transparent;
+    /* background-color: transparent; */
     color: #333;
 }
 
@@ -33,7 +33,7 @@ input, select, textarea, button {
 }
 
 .borda-branca {
-    border: solid 1px #fff;
+    border: none;
 }
 
 .borda-preta {

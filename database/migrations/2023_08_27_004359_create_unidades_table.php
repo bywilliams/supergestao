@@ -19,7 +19,7 @@ return new class extends Migration
         });
 
         // Cria relacionamento com a tabela produtos
-        schema::table('produtos', function(Blueprint $table) {
+        Schema::table('produtos', function(Blueprint $table) {
             $table->unsignedBigInteger('unidade_id');
 
             // Adiciona a constraint (indica que a coluna referencia a coluna id da tabela 'unidades')
@@ -51,7 +51,7 @@ return new class extends Migration
             $table->dropColumn('unidade_id');
         });
 
-        // Remove relacionamento com a tabela produto_detalhes
+        // Remove relacionamento com a tabela produtos
         Schema::table('produtos', function(Blueprint $table) {
             // Primeiro remove-se a fk
             $table->dropForeign('produtos_unidade_id_foreign'); // convenção de nome para foreign key do laravel [table]_[column]_foreign

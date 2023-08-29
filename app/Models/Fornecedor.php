@@ -15,4 +15,6 @@ class Fornecedor extends Model
 
     protected $table = 'fornecedores'; // declara o nome correto da tabela
 
+    protected $fillable = ['nome', 'site', 'uf', 'email'];
+
 }

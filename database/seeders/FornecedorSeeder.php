@@ -22,22 +22,5 @@ class FornecedorSeeder extends Seeder
         $fornecedor->uf = "CE";
         $fornecedor->email = "contato@fornecedor100.com.br";
         $fornecedor->save();
-
-        // Usando método create eloquent (atenção ao atributo fillable)
-        Fornecedor::create([
-            'nome' => 'Fornecedor 200',
-            'site' => 'fornecedor200.con.br',
-            'uf' => 'RS',
-            'email' => 'contato@fornecedor200.com.br'
-        ]);
-
-        // Insert (Atenção! importar DB Facades)
-        DB::table('fornecedores')->insert([
-            'nome' => 'Fornecedor 300',
-            'site' => 'fornecedor300.con.br',
-            'uf' => 'SP',
-            'email' => 'contato@fornecedor300.com.br'
-        ]);
-
     }
 }

@@ -23,13 +23,25 @@ class ContatoController extends Controller
 
     public function salvar(Request $request) {
 
-        $request->validate([
+        $regras = [
             'nome' => 'required|min:3|max:40|unique:site_contatos',
             'email' => 'email',
             'telefone' => 'required',
             'motivo_contatos_id' => 'required',
             'mensagem' => 'required|max:2000'
-        ]);
+        ];
+
+        $feedback = [
+            'nome.min' => 'O campo nome deve ter no minímo 3 caracteres.',
+            'nome.max' => 'O campo nome deve ter no máximo 40 caracteres.',
+            'nome.unique' => 'Este nome já esta em uso.',
+            'email.email' => 'Este e-mail não é válido.',
+            'motivo_contatos_id.required' => 'Escolhe um motivo para contato.',
+            // configuração para mensagens genéricas
+            'required' => 'O campo :attribute é obrigado.'
+        ];
+
+        $request->validate($regras, $feedback);
 
         SiteContato::create($request->all());
 

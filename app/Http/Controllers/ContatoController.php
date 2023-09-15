@@ -12,11 +12,6 @@ class ContatoController extends Controller
 
         $motivos_contatos = MotivoContato::all();
 
-        //dd($motivos_contatos);
-        
-        // usando método all() do Request direto no create
-        // $contato = new SiteContato();
-        // $contato->create($request->all());
 
         return view('site.contato', [ 'titulo' => 'Contato', 'motivos_contatos' => $motivos_contatos]);
     }

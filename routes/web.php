@@ -5,7 +5,6 @@ use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
-use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Metadata\Group;
 

@@ -16,7 +16,7 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Verifica se o usuário possui acesso a rota
-        if(true) {
+        if(false) {
             return $next($request);
         } else {
             return Response('Acesso negado, área administrativa');

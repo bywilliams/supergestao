@@ -13,8 +13,19 @@ class AutenticacaoMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $metodoAutenticacao): Response
     {
+
+        echo $metodoAutenticacao . '<br>';
+
+        if($metodoAutenticacao == 'padrao') {
+            echo 'Método de autentição ' . $metodoAutenticacao . '<br>';
+        }
+
+        if ($metodoAutenticacao == 'ldap') {
+            echo 'Método de autentição ' . $metodoAutenticacao . '<br>';
+        }
+
         // Verifica se o usuário possui acesso a rota
         if(false) {
             return $next($request);

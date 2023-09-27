@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
+{
+    public function index() {
+        return view('site.login', ['titulo' => 'Login']);
+    }
+
+    public function salvar(Request $request) {
+        dd($request);
+        echo "chegamos aqui!";
+    }
+}

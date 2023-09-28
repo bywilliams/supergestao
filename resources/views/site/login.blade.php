@@ -11,11 +11,13 @@
         <div class="informacao-pagina" style="width: 35%; margin-left: auto; margin-right: auto;">
             <form action="{{ route('site.login') }}" method="post">
             @csrf
-            <input name="usuario" type="text" placeholder="Usuário:" class="borda-preta">
-            <input name="senha" type="passwrod" placeholder="Senha:" class="borda-preta">
+            <input name="usuario" type="text" placeholder="Usuário:" value="{{ old('usuario') }}" class="borda-preta">
+            <span style="color: red;"> {{ $errors->has('usuario') ? $errors->first('usuario') : '' }} </span>
+            <input name="senha" type="password" placeholder="Senha:" value="{{ old('senha') }}" class="borda-preta">
+            <span style="color: red;"> {{ $errors->has('senha') ? $errors->first('senha') : '' }} </span>
             <button type="submit" class="borda-preta">Acessar</button>
-    
             </form>
+            <span style="color: red;"> {{ isset($erro) && $erro != '' ? $erro : '' }} </span>
         </div>
           
     </div>

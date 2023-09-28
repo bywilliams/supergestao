@@ -16,22 +16,13 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next, $metodoAutenticacao): Response
     {
 
-        echo $metodoAutenticacao . '<br>';
+       session_start();
 
-        if($metodoAutenticacao == 'padrao') {
-            echo 'Método de autentição ' . $metodoAutenticacao . '<br>';
-        }
-
-        if ($metodoAutenticacao == 'ldap') {
-            echo 'Método de autentição ' . $metodoAutenticacao . '<br>';
-        }
-
-        // Verifica se o usuário possui acesso a rota
-        if(false) {
+       if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
-        } else {
-            return Response('Acesso negado, área administrativa');
-        }
+       } else {
+            return redirect()->route('site.login', ['erro' => 2]);
+       }
 
     }
 }

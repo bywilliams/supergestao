@@ -178,6 +178,16 @@ button:hover {
     width: 100%;
 }
 
+.sucesso {
+    color:#7ab829;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.erros {
+    color: #C70039;
+}
+
 .redes-sociais, .area-contato, .localizacao {
     width: 33.333%;
     border-top:solid 1px #ccc;

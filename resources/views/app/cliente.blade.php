@@ -8,5 +8,6 @@
         <div class="titulo-pagina">
             <h1>Cliente</h1>
         </div>
+    </div>
 
 @endsection

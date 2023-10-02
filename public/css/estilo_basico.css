@@ -204,3 +204,18 @@ button:hover {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+
+
+.hidden svg{
+    width: 1.2rem;
+    height: auto;
+}
+
+.hidden span {
+    font-size: 18px;
+}
+
+.informacao-pagina nav {
+    margin-top: 1rem;
+}
+

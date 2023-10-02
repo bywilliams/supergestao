@@ -17,16 +17,17 @@
         </div>
 
         <div class="informacao-pagina" style="width: 30%; margin-left: auto; margin-right:auto;">
-            <span class="sucesso">{{ $msg }}</span>
+            <span class="sucesso">{{ $msg ?? ''}}</span>
             <form action="{{ route('app.fornecedor.adicionar') }}" method="post">
                 @csrf
-                <input type="text" name="nome"  placeholder="Nome:" value="{{ old('nome') }}" class="borda-preta">
+                <input type="hidden" name="id" value="{{ $fornecedor->id ?? '' }}">
+                <input type="text" name="nome"  placeholder="Nome:" value="{{ $fornecedor->nome ?? old('nome') }}" class="borda-preta">
                 <span class="erros"> {{ $errors->has('nome') ? $errors->first('nome') : ''  }} </span>
-                <input type="text" name="site"  placeholder="Site:" value="{{ old('site') }}" class="borda-preta">
+                <input type="text" name="site"  placeholder="Site:" value="{{ $fornecedor->site ?? old('site') }}" class="borda-preta">
                 <span class="erros"> {{ $errors->has('site') ? $errors->first('site') : ''  }} </span>
-                <input type="text" name="uf"  placeholder="UF:" value="{{ old('uf') }}" class="borda-preta">
+                <input type="text" name="uf"  placeholder="UF:" value="{{ $fornecedor->uf ?? old('uf') }}" class="borda-preta">
                 <span class="erros"> {{ $errors->has('uf') ? $errors->first('uf') : ''  }} </span>
-                <input type="email" name="email"  placeholder="E-mail:" value="{{ old('email') }}" class="borda-preta">
+                <input type="email" name="email"  placeholder="E-mail:" value="{{ $fornecedor->email ?? old('email') }}" class="borda-preta">
                 <span class="erros"> {{ $errors->has('email') ? $errors->first('email') : ''  }} </span>
                 <button type="submit" class="borda-preta">Salvar </button>
             </form>

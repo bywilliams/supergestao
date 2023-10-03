@@ -7,8 +7,12 @@ use App\Models\Fornecedor;
 
 class FornecedorController extends Controller
 {
-    public function index() {
-        return view('app.fornecedor.index');
+    public function index(Request $request) {
+        $msg = '';
+        if ($request->get('msg')) {
+            $msg = $request->get('msg');
+        }
+        return view('app.fornecedor.index', ['msg' => $msg]);
     }
 
     public function listar(Request $request) {
@@ -85,5 +89,13 @@ class FornecedorController extends Controller
 
 
         return view('app.fornecedor.adicionar', ['fornecedor' => $fornecedor, 'msg' => $msg]);
+    }
+
+    public function deletar($id, $msg = '') {
+
+        Fornecedor::find($id)->delete();
+        $msg = 'Fornecedor excluído com sucesso';
+
+        return redirect()->route('app.fornecedor', ['msg' => $msg]);
     }
 }

@@ -44,7 +44,7 @@
                     </tbody>
                 </table>
                 <div style="margin-top: 1rem;">
-                    {{ $fornecedores->appends($request)->links('app.fornecedor.custom.pagination') }}
+                    {{ $fornecedores->appends($request)->links('app.layouts.custom.pagination') }}
                 </div>
 
                 Exibindo {{ $fornecedores->count() }} fornecedores de {{ $fornecedores->total() }} (de {{ $fornecedores->firstItem() }} a {{ $fornecedores->lastItem() }} )

@@ -77,7 +77,7 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-        return view('app.produto.edit', ['produto' => $produto, 'unidades' => $unidades]);
+        return view('app.produto.create', ['produto' => $produto, 'unidades' => $unidades]);
     }
 
     /**
@@ -96,7 +96,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        // Deleta
+        // Deletar usando verbo HTTP Delete
         $produto->delete();
         return redirect()->route('produto.index');
     }

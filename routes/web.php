@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
@@ -51,7 +52,8 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     
     // produtos
     Route::resource('produto', ProdutoController::class);
-    //Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
+   
 });
 
 Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');

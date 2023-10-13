@@ -5,7 +5,7 @@
 @else
     <form action="{{ route('produto-detalhe.store') }}" method="post">
         @csrf
-@endif
+@endif  
         <input type="text" name="produto_id" placeholder="Produto Id:" value="{{ $produto_detalhe->produto_id ?? old('produto_id') }}" class="borda-preta">
         <span class="erros"> {{ $errors->has('produto_id') ? $errors->first('produto_id') : ''  }} </span>
         <input type="text" name="comprimento" placeholder="Comprimento:" value="{{ $produto_detalhe->comprimento ?? old('comprimento') }}" class="borda-preta">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ItemDetalhe;
 use Illuminate\Http\Request;
 use App\Models\Unidade;
 use App\Models\ProdutoDetalhe;
@@ -46,12 +47,15 @@ class ProdutoDetalheController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @param Integer $id
+     * return \Illuminate\http\Response
      */
-    public function edit(ProdutoDetalhe $produtoDetalhe)
+    public function edit($id)
     {
         //
+        $produto_detalhe = ItemDetalhe::with('item')->find($id);
         $unidades = Unidade::all();
-        return view('app.produto.produto_detalhe.edit', ['produto_detalhe' => $produtoDetalhe, 'unidades' => $unidades]);
+        return view('app.produto.produto_detalhe.edit', ['produto_detalhe' => $produto_detalhe, 'unidades' => $unidades]);
     }
 
     /**

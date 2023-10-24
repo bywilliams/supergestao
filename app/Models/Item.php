@@ -23,4 +23,8 @@ class Item extends Model
          * como terceiro parâmetro a pk da tabela correspondente a este mesmo model q no caso é 'id'
          */
     }
+
+    public function fornecedor () {
+        return $this->belongsTo('App\models\fornecedor');
+    } 
 }

@@ -19,4 +19,8 @@ class Fornecedor extends Model
 
     protected $fillable = ['nome', 'site', 'uf', 'email']; // especifica os campos que vão receber valores ao salvar registro
 
+    public function produtos () {
+        return $this->hasMany('App\models\Produto', 'fornecedor_id', 'id');	
+    }
+
 }

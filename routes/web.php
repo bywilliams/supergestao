@@ -7,9 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
+use App\Models\PedidoProduto;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Metadata\Group;
 
@@ -39,7 +42,6 @@ Route::post('/login', [LoginController::class, 'salvar'])->name('site.login');
 Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
-    Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
     
     // Rotas de fornecedor
     Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor');
@@ -52,7 +54,14 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     
     // produtos
     Route::resource('produto', ProdutoController::class);
+    // prdoutos detalhes
     Route::resource('produto-detalhe', ProdutoDetalheController::class);
+
+    Route::resource('cliente', ClienteController::class);
+    Route::resource('pedido', PedidoController::class);
+    Route::resource('pedido-produto', PedidoProdutoController::class);
+
+
    
 });
 

@@ -42,6 +42,7 @@ Route::post('/login', [LoginController::class, 'salvar'])->name('site.login');
 Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
+    //Route::get('/cliente', [ClienteController::class, 'sair'])->name('app.cliente');
     
     // Rotas de fornecedor
     Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor');

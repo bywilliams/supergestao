@@ -6,8 +6,7 @@
     <form action="{{ route('cliente.store') }}" method="post">
         @csrf
 @endif
-        
-        <span class="erros"> {{ $errors->has('nome') ? $errors->first('nome') : ''  }} </span>
-        <input type="text" name="nome" placeholder="Nome:" value="{{ $cliente->nome ?? old('nome') }}" class="borda-preta">
+        <input type="text" name="name" placeholder="Nome:" value="{{ $cliente->nome ?? old('nome') }}" class="borda-preta">
+        <span class="erros"> {{ $errors->has('name') ? $errors->first('name') : ''  }} </span>
         <button type="submit" class="borda-preta">Salvar </button>
     </form>

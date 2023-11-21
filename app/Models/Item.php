@@ -13,7 +13,7 @@ class Item extends Model
     protected $fillable = ['nome', 'descricao', 'peso', 'unidade_id', 'fornecedor_id'];
 
     public function itemDetalhe () {
-        return $this->hasOne('App\models\ItemDetalhe', 'produto_id', 'id');
+        return $this->hasOne('App\Models\ItemDetalhe', 'produto_id', 'id');
 
         /**
          * por convenção o Eloquent ORM vai procurar como FK na tabela produto_detalhes uma coluna 'item_id'
@@ -25,6 +25,6 @@ class Item extends Model
     }
 
     public function fornecedor () {
-        return $this->belongsTo('App\models\fornecedor');
+        return $this->belongsTo('App\Models\Fornecedor');
     } 
 }

@@ -36,7 +36,7 @@ class PedidoController extends Controller
     {
         //
         $regras = [
-            'cliente_id' => 'exists:cleients,id'
+            'cliente_id' => 'exists:clientes,id'
         ];
 
         $feedback = [

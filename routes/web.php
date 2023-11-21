@@ -66,6 +66,7 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
    
 });
 
+
 Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');
 
 Route::fallback( function(){

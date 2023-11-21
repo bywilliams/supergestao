@@ -55,15 +55,20 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     
     // produtos
     Route::resource('produto', ProdutoController::class);
-    // prdoutos detalhes
+    // produtos detalhes
     Route::resource('produto-detalhe', ProdutoDetalheController::class);
 
+    // cliente
     Route::resource('cliente', ClienteController::class);
+
+    // pedido
     Route::resource('pedido', PedidoController::class);
-    Route::resource('pedido-produto', PedidoProdutoController::class);
+    
+    // pedido produto
+    //Route::resource('pedido-produto', PedidoProdutoController::class);
+    Route::get('pedido-produto/create/{pedido}', [PedidoProdutoController::class, 'create'])->name('pedido-produto-create');
+    Route::post('pedido-produto/store/{pedido}', [PedidoProdutoController::class, 'store'])->name('pedido-produto-store');
 
-
-   
 });
 
 
